@@ -1,0 +1,17 @@
+{
+    "contacts": [
+      { "id": 1, "name": "Alice" },
+      { "id": 2, "name": "Bob" },
+      { "id": 3, "name": "Charlie" }
+    ],
+    "conversations": [
+      {
+        "id": 1,
+        "contactId": 1,
+        "messages": [
+          { "text": "Hello Alice", "sender": "me" },
+          { "text": "Hi there!", "sender": "Alice" }
+        ]
+      }
+    ]
+  }
