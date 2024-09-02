@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Updated import
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import ConversationList from './components/ConversationList';
+import ChatWindow from './components/ChatWindow';
+import './styles/styles.css'; // Ensure this file exists
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <div className="app">
+          <ConversationList />
+          <Routes> {/* Updated Switch to Routes */}
+            <Route path="/chat/:id" element={<ChatWindow />} /> {/* Updated component to element */}
+          </Routes>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
